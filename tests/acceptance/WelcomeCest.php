@@ -11,12 +11,14 @@ class WelcomeCest
     {
     }
 
-    // tests
+    // main page
     public function tryToTest(AcceptanceTester $I)
     {
         $I->wantTo('ensure that frontpage works');
         $I->amOnPage('/');
-        $I->see('Laravel Quickstart');
+        $I->seeResponseCodeIs('200');
 
     }
+    // logged in page
+
 }
