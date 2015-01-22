@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@showWelcome');
+Route::get('login', 'HomeController@showWelcome');
 
 
 Route::get('users', function()

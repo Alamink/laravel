@@ -1,0 +1,28 @@
+actor: Tester
+paths:
+    tests: tests
+    log: tests/_output
+    data: tests/_data
+    helpers: tests/_support
+settings:
+    bootstrap: _bootstrap.php
+    colors: false
+    memory_limit: 1024M
+
+coverage:
+  enabled: true
+  remote: false
+  withelist:
+  include:
+    - app/*
+  exclude:
+    - app/storage/*
+    - app/tests/*
+    - app/database/*
+    - app/config/*
+
+
+modules:
+    config:
+       PhpBrowser:
+                 url: http://laravel.local:8000

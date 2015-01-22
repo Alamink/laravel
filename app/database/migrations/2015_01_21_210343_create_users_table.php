@@ -11,6 +11,7 @@ class CreateUsersTable extends Migration {
 	 * @return void
 	 */
 	public function up()
+
 	{
          Schema::create('users', function( $table) {
               $table->increments('id');
@@ -18,7 +19,7 @@ class CreateUsersTable extends Migration {
               $table->string('last_name');
               $table->string('username');
               $table->string('password');
-              $table->string('email')->unique;
+              $table->string('email')->unique;});
 	}
 	/**
 	 * Reverse the migrations.

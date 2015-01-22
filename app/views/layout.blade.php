@@ -4,4 +4,6 @@
 
         @yield('content')
     </body>
+
+    <script></script>
 </html>
