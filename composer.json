@@ -8,7 +8,10 @@
 		"laravel/framework": "4.2.*",
 		"codeception/codeception": "*",
 		"fzaninotto/faker": "~1.4",
-		"codeception/c3": "2.*"
+		"codeception/c3": "2.*",
+		"barryvdh/laravel-debugbar": "~1.8",
+	  	"maximebf/debugbar": ">=1.0.0"
+
 	},
 	"autoload": {
 		"classmap": [

@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', 'HomeController@showWelcome');
-Route::get('login', 'HomeController@showWelcome');
+Route::get('login', array('uses'=>'HomeController@showWelcome'));
+Route::post('login', array('uses'=>'HomeController@login'));
 
-
-Route::get('users', function()
-{
-    return View::make('users');
-});
+// static page
+Route::get('about',function(){
+    return View::make('about');
+}
+);

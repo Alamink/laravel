@@ -1,6 +1,9 @@
 <?php
+use DebugBar\StandardDebugBar;
 
 class HomeController extends BaseController {
+
+
 
 	/*
 	|--------------------------------------------------------------------------
@@ -18,6 +21,38 @@ class HomeController extends BaseController {
 	public function showWelcome()
 	{
 		return View::make('hello');
+	}
+
+
+	public function login()	{
+		// setup the reules
+		$rules = array(
+			'email' => 'required',
+			'password' => 'required',
+		);
+
+		$validator  = Validator::make(Input::all(),$rules);
+
+			if($validator->fails()){// case failure
+				return  Redirect::to('/login')->withErrors($validator)
+					->withInput(Input::except('password'));
+
+            }else {
+
+				$userdata = array(
+					'email' => Input::get('email'),
+					'password' => Input::get('password')
+				);
+
+				if (Auth::attempt($userdata)) {
+					echo 'SUCCESS!';
+				} else {
+					echo 'Fail!';
+
+//					return Redirect::to('/login');
+				}
+
+			}
 	}
 
 }
