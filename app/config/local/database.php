@@ -16,6 +16,7 @@ return array(
 	| so make sure you have the driver for your particular database of
 	| choice installed on your machine before you begin development.
 	|
+		I had to add the port number in there: I got access dened
 	*/
 
 	'connections' => array(

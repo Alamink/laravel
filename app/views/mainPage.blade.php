@@ -3,6 +3,6 @@
     <title>About Alamin</title>
 </head>
 <body>
-<h1>You loged in to main page</h1>
+<h1>You logged in to main page</h1>
 </body>
 </html>

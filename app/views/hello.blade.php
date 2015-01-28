@@ -1,4 +1,4 @@
-<!--
+
 <!DOCTYPE html>
 
 
@@ -17,7 +17,7 @@
 <div class="container">
     <h2>Login with Alamin</h2>
 
-    <form method="POST" action="/" novalidate>
+    <form method="POST" action="/login" novalidate>
 
         <p>
             {{ $errors->first('username') }}
@@ -27,15 +27,15 @@
 
         <div class="form-group">
             <label for="username">User Name:</label>
-            <input type="username" class="form-control" id="username" placeholder="Enter username">
+            <input type="username" class="form-control" id="username" name="username" placeholder="Enter username">
         </div>
 
         <div class="form-group">
             <label for="pwd">Password:</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
         </div>
 
-        <button type=" submit " class="btn btn-default"> Submit  </button>
+        <button type=" submit " class="btn btn-default">Submit</button>
     </form>
 
     <h1></h1>
@@ -45,34 +45,5 @@
 
 </body>
 </html>
--->
 
 
-<!doctype html>
-<html>
-<head>
-<title>Look at me Login</title>
-</head>
-<body>
-
-
-{{ Form::open(array('url' => 'login')) }}
-<h1>Login</h1>
-
-<p>
-    {{ $errors->first('email') }}
-    {{ $errors->first('password') }}
-</p>
-
-<p>
-    {{ Form::label('email', 'Email Address') }}
-    {{ Form::text('email', Input::old('email'), array('placeholder' => 'awesome@awesome.com')) }}
-</p>
-
-<p>
-    {{ Form::label('password', 'Password') }}
-    {{ Form::password('password') }}
-</p>
-
-<p>{{ Form::submit('Submit!') }}</p>
-{{ Form::close() }}

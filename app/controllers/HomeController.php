@@ -27,9 +27,10 @@ class HomeController extends BaseController {
 	public function login()	{
 		// setup the reules
 		$rules = array(
-			'email' => 'required',
+			'username' => 'required',
 			'password' => 'required',
 		);
+
 
 		$validator  = Validator::make(Input::all(),$rules);
 
@@ -38,18 +39,17 @@ class HomeController extends BaseController {
 					->withInput(Input::except('password'));
 
             }else {
-
 				$userdata = array(
-					'email' => Input::get('email'),
+					'username' => Input::get('username'),
 					'password' => Input::get('password')
 				);
 
+//				dd(DB::connection('pgsql'));
+
 				if (Auth::attempt($userdata)) {
-					echo 'SUCCESS!';
+					return View::make('mainPage');
 				} else {
 					echo 'Fail!';
-
-//					return Redirect::to('/login');
 				}
 
 			}
