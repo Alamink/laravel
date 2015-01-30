@@ -5,4 +5,4 @@ modules:
         - AcceptanceHelper
     config:
         PhpBrowser:
-            url: 'http://laravel.local:8000'
+            url: 'http://localhost:8000'
