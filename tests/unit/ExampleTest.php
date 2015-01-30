@@ -10,8 +10,6 @@
 class ExampleTest extends \Codeception\TestCase\Test
 {
     public function testValidation(){
-
                 $user = new User();
-
     }
 }

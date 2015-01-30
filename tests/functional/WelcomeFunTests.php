@@ -2,29 +2,28 @@
 /**
  * Created by PhpStorm.
  * User: almatrudia
- * Date: 1/28/2015
- * Time: 1:47 AM
+ * Date: 1/30/2015
+ * Time: 3:08 PM
  */
 
-class WelcomeFunTest{
+class WelcomeFunTests
+{
 
-
-
-    // main page
-    /*public function testMainPage(FunctionalTester $I)
+    public function testMainPage(FunctionalTester $I)
     {
+
         $I->wantTo('ensure that main page works');
         $I->amOnPage('/login');
         $I->seeResponseCodeIs('200');
     }
-
-    public function testAboutPage(AcceptanceTester $I){
+/*
+    public function testAboutPage(FunctionalTester $I){
         $I->wantTo('ensure that about page works');
         $I->amOnPage('/about');
         $I->seeResponseCodeIs('200');
     }
 
-    public function testLogin(AcceptanceTester $I){
+    public function testLogin(FunctionalTester $I){
         $I->wantTo('ensure that logs in works and direct me to main page');
         $I->amOnPage('/login');
         $I->fillField('username','almatrudia');
@@ -34,5 +33,4 @@ class WelcomeFunTest{
         $I->seeCurrentUrlEquals('/login');
 
     }*/
-
 }
