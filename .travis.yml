@@ -26,12 +26,12 @@ before_script:
     # should I do this to all other suites ?
 
 script:
-  -php vendor/bin/codecept-run --report --coverage-xml
+  - php vendor/bin/codecept-run --report --coverage-xml
 
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --access-token=<<access token>> --format=php-clover tests/_output/report.xml
+  - php ocular.phar code-coverage:upload  --format=php-clover tests/_output/report.xml
 after_failure:
   - cat app/storage/logs/laravel.log
   - cat tests/_output/*
