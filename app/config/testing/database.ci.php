@@ -6,8 +6,6 @@
  * Time: 3:18 PM
  */
 
- <?php
-
  return array(
 
  	/*
