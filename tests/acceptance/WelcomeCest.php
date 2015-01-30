@@ -2,6 +2,7 @@
 
 class WelcomeCest
 {
+    //black box test
     public function _before(AcceptanceTester $I)
     {
     }
@@ -15,13 +16,13 @@ class WelcomeCest
     {
         $I->wantTo('ensure that main page works');
         $I->amOnPage('/login');
-        $I->seeResponseCodeIs('200');
+        $I->see('Login with Alamin');
 
     }
     public function testAboutPage(AcceptanceTester $I){
         $I->wantTo('ensure that about page works');
         $I->amOnPage('/about');
-        $I->seeResponseCodeIs('200');
+        $I->see('Alamin almatrudi');
     }
 
     public function testLogin(AcceptanceTester $I){

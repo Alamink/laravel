@@ -13,7 +13,7 @@ brnaches:
     - master
 before_script:
     - mysql -e 'create database test;'
-    - cp .env.ci.php .env  #copy over CI environment configuration
+    - cp /app/config/testing/database.ci.php  /app/config/testing/database.php  #copy over CI environment configuration | database conv
     - travis_retry composer self-update
     - travis_retry composer install --prefer-source --no-interaction --dev
     - chmod -R 777 storage/
@@ -21,7 +21,7 @@ before_script:
     - php artisan db:seed
     - php -S localhost:8000 -t public &
     - sleep 5 # give artisan serve some time to start
-    - php vendor/bin/codecept build
+    - vendor/bin/codecept build
     - cp tests/acceptance.suite.yml.ci tests/acceptance.suite.yml #copy over CI acceptance test configuration
 
 script:
