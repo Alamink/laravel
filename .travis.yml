@@ -31,7 +31,7 @@ script:
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload  --format=php-clover tests/_output/report.xml
+  - php ocular.phar code-coverage:upload  --format=php-clover tests/_output/coverage.xml
 after_failure:
   - cat app/storage/logs/laravel.log
   - cat tests/_output/*
