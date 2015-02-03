@@ -22,8 +22,37 @@ class HomeController extends BaseController {
 	{
 		return View::make('hello');
 	}
+	public function showRegistrar()
+	{
+		return View::make('/registrar');
+	}
+
+	public function register(){
 
 
+		$validator = Validator::make(Input::all(), User::$rules);
+
+
+		if($validator->fails()){
+			$messages = $validator->messages();
+			return Redirect::to('registrar')->withErrors($validator)
+				->withInput(Input::except('password','password_confirm'));
+
+		}else{
+
+			$user = new User;
+			$user->first_name = Input::get('first_name');
+			$user->last_name = Input::get('last_name');
+			$user->username = Input::get('username');
+			$user->email = Input::get('email');
+			$user->password = Hash::make(Input::get('password'));
+
+			$user->save();
+			echo "I saved you to Database";
+
+		}
+
+	}
 	public function login()	{
 		// setup the reules
 		$rules = array(
@@ -44,7 +73,6 @@ class HomeController extends BaseController {
 					'password' => Input::get('password')
 				);
 
-//				dd(DB::connection('pgsql'));
 
 				if (Auth::attempt($userdata)) {
 					return View::make('mainPage');

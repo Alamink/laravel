@@ -14,8 +14,18 @@
 Route::get('login', array('uses'=>'HomeController@showWelcome'));
 Route::post('login', array('uses'=>'HomeController@login'));
 
+Route::get('/registrar', array('uses'=>'HomeController@showRegistrar'));
+Route::Post('/registrar', array('uses'=>'HomeController@register'));
+
+
 // static page
 Route::get('about',function(){
     return View::make('about');
-}
-);
+});
+Route::get('registrar',function(){
+    return View::make('/registrar');
+});
+
+Route::get('',function(){
+    return Redirect::to('login');
+});

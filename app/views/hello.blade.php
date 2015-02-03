@@ -39,7 +39,9 @@
     </form>
 
     <h1></h1>
-        <button type="submit" class="btn btn-default">Register</button>
+    <form method="GET" action="/registrar" novalidate>
+        <button type="submit" onclick="" class="btn btn-default">Register</button>
+    </form>
 
 </div>
 
