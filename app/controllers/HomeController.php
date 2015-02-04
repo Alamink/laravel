@@ -60,7 +60,6 @@ class HomeController extends BaseController {
 			'password' => 'required',
 		);
 
-
 		$validator  = Validator::make(Input::all(),$rules);
 
 			if($validator->fails()){// case failure

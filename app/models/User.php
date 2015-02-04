@@ -28,18 +28,22 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * my work based on the example
 	 */
 
+
 	protected $fillable = array('first_name','last_name','username','password',
 	'email');
+
 	public static $rules = array(
 		'first_name'             => 'required',
 		'last_name'             => 'required',
-		'username'             => 'required|min:6',
+		'username'             => 'required|min:6:unique:users',
 		'email'            => 'required|email|unique:users',
 		'password'         => 'required|min:5|max:30|has:upper,lower,num',
 		'password_confirm' => 'required|same:password'
 	);
 
+	public function setFirstName($name){
 
+	}
 }
 Validator::extend('has', function($attr, $value, $params) {
 

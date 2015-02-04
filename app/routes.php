@@ -23,7 +23,7 @@ Route::get('about',function(){
     return View::make('about');
 });
 Route::get('registrar',function(){
-    return View::make('/registrar');
+    return View::make('registrar');
 });
 
 Route::get('',function(){

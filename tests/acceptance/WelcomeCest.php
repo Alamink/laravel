@@ -25,7 +25,7 @@ class WelcomeCest
         $I->see('Alamin almatrudi');
     }
 
-   /* public function testLogin(AcceptanceTester $I){
+    public function testLogin(AcceptanceTester $I){
         $I->wantTo('ensure that logs in works and direct me to main page');
         $I->amOnPage('/login');
         $I->fillField('username','almatrudia');
@@ -33,6 +33,12 @@ class WelcomeCest
         $I->click('Submit');
         $I->see('You logged in to main page');
 
-    }*/
+    }
+    public function testRegistrarPage(AcceptanceTester $I){
+        $I->wantTo('ensure that the registrar page works');
+        $I->amOnPage('/registrar');
+        $I->see('Register');
+    }
+
 
 }

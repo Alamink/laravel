@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Laravel Form Validation!</title>
+    <title>Registration Form!</title>
 
     <!-- load bootstrap -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -10,6 +10,7 @@
 body    { padding-bottom:40px; padding-top:40px; }
     </style>
 </head>
+
 <body class="container">
 
 <div class="row">
