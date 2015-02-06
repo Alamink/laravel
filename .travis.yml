@@ -17,8 +17,8 @@ before_script:
     - travis_retry composer self-update
     - travis_retry composer install --prefer-source --no-interaction --dev
     - chmod -R 777 app/storage/
-    - php artisan migrate --no-interaction
-    - php artisan db:seed --no-interaction
+    - php artisan migrate --env=testing --no-interaction -vvv
+    - php artisan db:seed --env=testing --no-interaction -vvv
     - php -S localhost:8000 -t public &
     - sleep 5 # give artisan serve some time to start
     - vendor/bin/codecept build
