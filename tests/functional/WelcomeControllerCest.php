@@ -25,7 +25,7 @@ class WelcomeControllerCest
         $I->seeResponseCodeIs('200');
     }
 
-   /* public function testLogin(FunctionalTester $I){
+    public function testLogin(FunctionalTester $I){
         $I->wantTo('ensure that logs in works and direct me to main page');
         $I->amOnPage('/login');
         $I->fillField('username','almatrudia');
@@ -33,6 +33,6 @@ class WelcomeControllerCest
         $I->click('Submit');
         $I->seeResponseCodeIs('200');
         $I->seeCurrentUrlEquals('/login');
+    }
 
-    }*/
 }
