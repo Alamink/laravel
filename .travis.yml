@@ -13,8 +13,8 @@ brnaches:
     - master
 before_script:
     - mysql -e 'create database citest;'
-  #  - cp app/config/testing/database.ci.php  app/config/testing/database.php  #copy over CI environment configuration | database conv
-    - cp app/config/database.ci.php  app/config/database.php  #copy over CI environment configuration | database conv
+    - cp app/config/testing/database.ci.php  app/config/testing/database.php  #copy over CI environment configuration | database conv
+    #- cp app/config/database.ci.php  app/config/database.php  #copy over CI environment configuration | database conv
     - travis_retry composer self-update
     - travis_retry composer install --prefer-source --no-interaction --dev
     - chmod -R 777 app/storage/
