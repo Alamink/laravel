@@ -1,9 +1,4 @@
-/**
- * Created by PhpStorm.
- * User: almatrudia
- * Date: 1/28/2015
- * Time: 3:19 PM
- */
+
 
 <?php
 
@@ -30,10 +25,10 @@ return array(
 
         'mysql' => array(
             'driver'    => 'mysql',
-            'host'      => '127.0.0.1:33060',
-            'database'  => 'homestead',
-            'username'  => 'homestead',
-            'password'  => 'secret',
+            'host'      => '127.0.0.1',
+            'database'  => 'citest',
+            'username'  => 'root',
+            'password'  => '',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
