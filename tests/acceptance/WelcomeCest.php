@@ -28,11 +28,49 @@ class WelcomeCest
     public function testLogin(AcceptanceTester $I){
         $I->wantTo('ensure that logs in works and direct me to main page');
         $I->amOnPage('/login');
+        $I->fillField('email','almatrudia@msoe.edu');
         $I->fillField('username','almatrudia');
         $I->fillField('password','password');
         $I->click('Submit');
         $I->see('You logged in to main page');
 
+    }
+
+    public function testFailToLogin(AcceptanceTester $I){
+        $I->wantTo('ensure that logs tell me I fail to Login');
+        $I->amOnPage('/login');
+        $I->fillField('email','almatrudia@msoe.edu');
+        $I->fillField('username','almatrudia');
+        $I->fillField('password','wrongPassword');
+        $I->click('Submit');
+        $I->see('Fail to Login');
+
+    }
+
+    public function testFailToPassValidatorMissingUserName(AcceptanceTester $I){
+        $I->wantTo('ensure that logs warn me when missing username');
+        $I->amOnPage('/login');
+        $I->fillField('email','almatrudia@msoe.edu');
+        $I->fillField('password','wrongPassword');
+        $I->click('Submit');
+        $I->see('The username field is required');
+    }
+
+    public function testFailToPassValidatorMissingEmail(AcceptanceTester $I){
+        $I->wantTo('ensure that logs warn me when missing Email');
+        $I->amOnPage('/login');
+        $I->fillField('username','almatrudia');
+       $I->fillField('password','wrongPassword');
+        $I->click('Submit');
+        $I->see('The email field is required');
+    }
+    public function testFailToPassValidatorMissingPassword(AcceptanceTester $I){
+        $I->wantTo('ensure that logs warn me when missing passowrd');
+        $I->amOnPage('/login');
+        $I->fillField('username','almatrudia');
+        $I->fillField('email','almatrudia@msoe.edu');
+        $I->click('Submit');
+        $I->see('The password field is required');
     }
 
 }

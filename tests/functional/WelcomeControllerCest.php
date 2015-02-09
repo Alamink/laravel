@@ -34,4 +34,43 @@ class WelcomeControllerCest
         $I->seeResponseCodeIs('200');
         $I->seeCurrentUrlEquals('/login');
     }
+
+    public function testFailToLogin(FunctionalTester $I){
+        $I->wantTo('ensure that logs tell me I fail to Login');
+        $I->amOnPage('/login');
+        $I->fillField('email','almatrudia@msoe.edu');
+        $I->fillField('username','almatrudia');
+        $I->fillField('password','wrongPassword');
+        $I->click('Submit');
+        $I->seeCurrentUrlEquals('/login');
+    }
+
+    public function testFailToPassValidatorMissingUserName(FunctionalTester $I){
+        $I->wantTo('ensure that logs warn me when missing username');
+        $I->amOnPage('/login');
+        $I->fillField('email','almatrudia@msoe.edu');
+        $I->fillField('password','wrongPassword');
+        $I->click('Submit');
+        $I->seeResponseCodeIs('200');
+        $I->seeCurrentUrlEquals('/login');
+    }
+
+    public function testFailToPassValidatorMissingEmail(FunctionalTester $I){
+        $I->wantTo('ensure that logs warn me when missing username');
+        $I->amOnPage('/login');
+        $I->fillField('username','almatrudia');
+        $I->fillField('password','wrongPassword');
+        $I->click('Submit');
+        $I->seeResponseCodeIs('200');
+        $I->seeCurrentUrlEquals('/login');
+    }
+    public function testFailToPassValidatorMissingPassword(FunctionalTester $I){
+        $I->wantTo('ensure that logs warn me when missing username');
+        $I->amOnPage('/login');
+        $I->fillField('username','almatrudia');
+        $I->fillField('email','almatrudia@msoe.edu');
+        $I->click('Submit');
+        $I->seeResponseCodeIs('200');
+        $I->seeCurrentUrlEquals('/login');
+    }
 }
