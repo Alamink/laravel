@@ -27,9 +27,9 @@ class HomeController extends BaseController {
 	public function login()	{
 		// setup the reules
 		$rules = array(
+			'email'  =>  'required',
 			'username' => 'required',
-			'password' => 'required',
-			'email'  =>  'required'
+			'password' => 'required'
 		);
 
 		$validator  = Validator::make(Input::all(),$rules);
@@ -40,15 +40,15 @@ class HomeController extends BaseController {
 
             }else {
 				$userdata = array(
+					'email'  => Input::get('email'),
 					'username' => Input::get('username'),
-					'password' => Input::get('password'),
-					'email'  => Input::get('email')
+					'password' => Input::get('password')
 				);
 
 				if (Auth::attempt($userdata)) {
 					return View::make('mainPage');
 				} else {
-					return Redirect::Back()->withErrors(['Fail to Login', ''])->withInput(Input::except('password'));
+					return Redirect::Back()->withErrors(['Fail to Login', 'Fail to Login'])->withInput(Input::except('password'));
 				}
 
 			}
