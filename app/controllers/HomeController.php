@@ -34,7 +34,6 @@ class HomeController extends BaseController {
 
 
 		if($validator->fails()){
-			$messages = $validator->messages();
 			return Redirect::to('registrar')->withErrors($validator)
 				->withInput(Input::except('password','password_confirm'));
 
@@ -48,8 +47,7 @@ class HomeController extends BaseController {
 			$user->password = Hash::make(Input::get('password'));
 
 			$user->save();
-			echo "I saved you to Database";
-
+			return View::make('conformation');
 		}
 
 	}

@@ -15,7 +15,7 @@ Route::get('login', array('uses'=>'HomeController@showWelcome'));
 Route::post('login', array('uses'=>'HomeController@login'));
 
 Route::get('/registrar', array('uses'=>'HomeController@showRegistrar'));
-Route::Post('/registrar', array('uses'=>'HomeController@register'));
+Route::post('/registrar', array('uses'=>'HomeController@register'));
 
 
 // static page
