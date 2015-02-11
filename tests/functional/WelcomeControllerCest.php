@@ -24,8 +24,7 @@ class WelcomeControllerCest
         $I->amOnPage('/about');
         $I->seeResponseCodeIs('200');
     }
-/*
-Token failure
+
     public function testLogin(FunctionalTester $I){
         $I->wantTo('ensure that logs in works and direct me to main page');
         $I->amOnPage('/login');
@@ -35,7 +34,7 @@ Token failure
         $I->seeResponseCodeIs('200');
         $I->seeCurrentUrlEquals('/login');
 
-    }*/
+    }
     public function testRegistrarPage(FunctionalTester $I){
         $I->wantTo('ensure that Registrar page works');
         $I->amOnPage('/registrar');
