@@ -6,9 +6,11 @@
 
 class_name: AcceptanceTester
 modules:
+
     enabled:
         - PhpBrowser
         - AcceptanceHelper
+        - Laravel4
     config:
         PhpBrowser:
             url: 'http://laravel.local:8000'

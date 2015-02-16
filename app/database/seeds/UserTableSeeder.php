@@ -15,7 +15,6 @@ class UserTableSeeder extends Seeder
         'last_name' => 'Almatrudi',
         'email' => 'almatrudia@msoe.edu',
         'password' => Hash::make('password')
-
     ));
 
   }

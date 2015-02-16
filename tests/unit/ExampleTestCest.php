@@ -11,34 +11,6 @@ class ExampleTestCest
     {
     }
 
-    public function TestValidatorPasswordMeet(UnitTester $I)
-
-    {
-        /*
-         *
-		'first_name'             => 'required',
-		'last_name'             => 'required',
-		'username'             => 'required|min:6:unique:users',
-		'email'            => 'required|email|unique:users',
-		'password'         => 'required|min:5|max:30|has:upper,lower,num',
-		'password_confirm' => 'required|same:password'
-	);
-         */
-        $I->wantTo('I want to test Validator When not meeting password requirements for registration');
-        $user = array(
-            'first_name'             => 'my name',
-            'last_name'             => 'my last name',
-            'username'             => 'username',
-            'email'            => 'myemail@me.com',
-            'password'         => 'NicePas12',
-            'password_confirm' => 'NicePas12'
-
-        );
-
-        $validator = Validator::make($user,User::$rules );
-        $I->assertTrue($validator->passes());
-
-    }
     public function TestValidatorPasswordMin(UnitTester $I)
 
     {
@@ -52,10 +24,30 @@ class ExampleTestCest
             'password_confirm' => '1234'
 
         );
-        $validator = Validator::make($user,User::$rules );
+        $validator = User::getValidator($user);
         $I->assertTrue($validator->fails());
 
     }
+
+    public function TestValidatorPasswordMeet(UnitTester $I)
+
+    {
+          $I->wantTo('I want to test Validator When meeting password requirements for registration');
+          $user = array(
+            'first_name'             => 'my name',
+            'last_name'             => 'my last name',
+            'username'             => 'username',
+            'email'            => 'myemaml@me.com',
+            'password'         => 'NicePas12',
+            'password_confirm' => 'NicePas12'
+
+        );
+
+        $validator = User::getValidator($user);
+        $I->assertFalse($validator->fails());
+
+    }
+
      /*
     public function TestValidatorMissingPassword(UnitTester $I)
 

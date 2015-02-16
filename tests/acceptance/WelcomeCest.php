@@ -5,6 +5,12 @@ class WelcomeCest
     //black box test
     public function _before(AcceptanceTester $I)
     {
+        Artisan::call('migrate:rollback');
+        Artisan::call('migrate');
+        Artisan::call('db:seed');
+
+
+
     }
 
     public function _after(AcceptanceTester $I)
@@ -57,8 +63,8 @@ class WelcomeCest
         $I->fillField('password', 'passworD365');
         $I->fillField('password_confirm', 'passworD365');
         $I->click('Register');
-        $I->see('I saved you to Database');
 
+        $I->see('I saved you to Database');
 
     }
 }

@@ -30,7 +30,7 @@ class HomeController extends BaseController {
 	public function register(){
 
 
-		$validator = Validator::make(Input::all(), User::$rules);
+		$validator = User::getValidator(Input::all());
 
 
 		if($validator->fails()){

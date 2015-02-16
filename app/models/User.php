@@ -41,45 +41,48 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		'password_confirm' => 'required|same:password'
 	);
 
-	public function setFirstName($name){
+public static $messages = array('password.has'    => 'The password must have lower and upper letter and number.');
 
+	public static function getValidator($input){
+
+		Validator::extend('has', function($attr, $value, $params) {
+
+			if (!count($params)) {
+				throw new \InvalidArgumentException('The has validation rule expects at least one parameter, 0 given.');
+			}
+
+			foreach ($params as $param) {
+				switch ($param) {
+					case 'num':
+						$regex = '/\pN/';
+						break;
+					case 'letter':
+						$regex = '/\pL/';
+						break;
+					case 'lower':
+						$regex = '/\p{Ll}/';
+						break;
+					case 'upper':
+						$regex = '/\p{Lu}/';
+						break;
+					case 'special':
+						$regex = '/[\pP\pS]/';
+						break;
+					default:
+						$regex = $param;
+				}
+
+				if (! preg_match($regex, $value)) {
+					return false;
+				}
+			}
+
+			return true;
+		});
+
+		$validator = Validator::make($input, User::$rules,User::$messages);
+
+		return $validator;
 	}
+
 }
-Validator::extend('has', function($attr, $value, $params) {
-
-	if (!count($params)) {
-		throw new \InvalidArgumentException('The has validation rule expects at least one parameter, 0 given.');
-	}
-
-	foreach ($params as $param) {
-		switch ($param) {
-			case 'num':
-				$regex = '/\pN/';
-				break;
-			case 'letter':
-				$regex = '/\pL/';
-				break;
-			case 'lower':
-				$regex = '/\p{Ll}/';
-				break;
-			case 'upper':
-				$regex = '/\p{Lu}/';
-				break;
-			case 'special':
-				$regex = '/[\pP\pS]/';
-				break;
-			default:
-				$regex = $param;
-		}
-
-		if (! preg_match($regex, $value)) {
-			return false;
-		}
-	}
-
-	return true;
-});
-
-Validator::make(['password' => Input::get('password')], ['password' => 'has:upper,lower,num'], [
-	'password.has' => 'The password must contain at least one upper and one lower case letter and a number.',
-]);
