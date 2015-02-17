@@ -54,7 +54,7 @@ class HomeController extends BaseController {
 	public function login()	{
 		// setup the reules
 		$rules = array(
-			'username' => 'required',
+			'username'=> 'required',
 			'password' => 'required',
 		);
 
