@@ -8,9 +8,6 @@ class WelcomeCest
         Artisan::call('migrate:rollback');
         Artisan::call('migrate');
         Artisan::call('db:seed');
-
-
-
     }
 
     public function _after(AcceptanceTester $I)
@@ -25,7 +22,6 @@ class WelcomeCest
         $I->see('Login with Alamin');
 
     }
-
     public function testAboutPage(AcceptanceTester $I)
     {
         $I->wantTo('ensure that about page works');
@@ -43,15 +39,7 @@ class WelcomeCest
         $I->see('You logged in to main page');
 
     }
-
-    public function testRegistrarPage(AcceptanceTester $I)
-    {
-        $I->wantTo('ensure that the registrar page works');
-        $I->amOnPage('/registrar');
-        $I->see('Register');
-    }
-
-    public function testRegistrationCorrectly(AcceptanceTester $I)
+   /* public function testRegistrationCorrectly(AcceptanceTester $I)
     {
         $I->wantTo('ensure that I can registrar with correct information');
 
@@ -66,5 +54,12 @@ class WelcomeCest
 
         $I->see('I saved you to Database');
 
+    }*/
+    public function testRegistrarPage(AcceptanceTester $I)
+    {
+        $I->wantTo('ensure that the registrar page works');
+        $I->amOnPage('/registrar');
+        $I->see('Register');
     }
+
 }

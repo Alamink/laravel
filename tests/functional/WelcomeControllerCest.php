@@ -5,6 +5,9 @@ class WelcomeControllerCest
 {
     public function _before(FunctionalTester $I)
     {
+        Artisan::call('migrate:rollback');
+        Artisan::call('migrate');
+        Artisan::call('db:seed');
     }
 
     public function _after(FunctionalTester $I)
@@ -38,6 +41,20 @@ class WelcomeControllerCest
     public function testRegistrarPage(FunctionalTester $I){
         $I->wantTo('ensure that Registrar page works');
         $I->amOnPage('/registrar');
+        $I->seeResponseCodeIs('200');
+
+    }
+    public function testRegistrationCorrectly(FunctionalTester $I)
+    {
+        $I->wantTo('ensure that I can registrar with correct information');
+        $I->amOnPage('/registrar');
+        $I->fillField('first_name', 'Alamin');
+        $I->fillField('last_name', 'Almatrudi');
+        $I->fillField('username', 'uniqeUserName');
+        $I->fillField('email', 'me@hotmail.com');
+        $I->fillField('password', 'passworD365');
+        $I->fillField('password_confirm', 'passworD365');
+        $I->click('Register');
         $I->seeResponseCodeIs('200');
 
     }
