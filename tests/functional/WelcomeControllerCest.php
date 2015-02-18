@@ -44,7 +44,7 @@ class WelcomeControllerCest
         $I->seeResponseCodeIs('200');
 
     }
-    public function testRegistrationCorrectly(FunctionalTester $I)
+   /* public function testRegistrationCorrectly(FunctionalTester $I)
     {
         $I->wantTo('ensure that I can registrar with correct information');
         $I->amOnPage('/registrar');
@@ -57,5 +57,5 @@ class WelcomeControllerCest
         $I->click('Register');
         $I->seeResponseCodeIs('200');
 
-    }
+    }*/
 }
