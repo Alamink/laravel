@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d597a74c-96dd-4fe2-aab4-c7f5d8ad1033" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/acceptance/AcceptanceTester.php" afterPath="$PROJECT_DIR$/tests/acceptance/AcceptanceTester.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/acceptance/WelcomeCest.php" afterPath="$PROJECT_DIR$/tests/acceptance/WelcomeCest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/functional/WelcomeControllerCest.php" afterPath="$PROJECT_DIR$/tests/functional/WelcomeControllerCest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="laravel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,8 +30,8 @@
       <file leaf-file-name="WelcomeCest.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/acceptance/WelcomeCest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7781732" vertical-offset="245" max-vertical-offset="1190">
-              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6251483" vertical-offset="204" max-vertical-offset="1190">
+              <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -698,8 +695,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/acceptance/WelcomeCest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7781732" vertical-offset="245" max-vertical-offset="1190">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6251483" vertical-offset="204" max-vertical-offset="1190">
+          <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
           <folding />
         </state>
       </provider>
